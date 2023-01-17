@@ -1,0 +1,73 @@
+<form class="signup-form col-12 justify-content-center mt-5">
+  <!-- Pseudo -->
+  <div class="row form-container">
+    <div class="form-group pseudo">
+      <input
+      type="text"
+      class="form-control"
+      placeholder="Pseudo"
+      name="pseudo"
+      autocomplete="off"
+      pattern="[A-Za-z\d\.]{3,10}"
+      required minlength="4">
+    </div>
+  </div>
+  <!-- Email -->
+  <div class="row form-container">
+    <div class="form-group email">
+      <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      name="email"
+      autocomplete="off"
+      required>
+    </div>
+  </div>
+  <!-- Email Confirmation -->
+  <div class="row form-container">
+    <div class="form-group emailConfirm">
+      <input
+      type="email"
+      class="form-control"
+      placeholder="Email Confirmation"
+      name="emailConfirm"
+      autocomplete="off"
+      required>
+    </div>
+  </div>
+  <!-- Password -->
+  <div class="row form-container">
+    <div class="form-group password">
+      <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      name="password"
+      autocomplete="off"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      required>
+    </div>
+  </div>
+  <!-- Password Confirmation -->
+  <div class="row form-container">
+    <div class="form-group passwordConfirm">
+      <input
+      type="password"
+      class="form-control"
+      placeholder="Password Confirmation"
+      name="passwordConfirm"
+      autocomplete="off"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      required>
+    </div>
+  </div>
+  <div class="row submit-btn">
+    <div class="text-center mb-3">
+      <button class="btn col-4 text-white mb-3" type="submit">
+        S'inscrire
+      </button>
+      <p>En vous inscrivant, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.</p>
+    </div>
+  </div>
+</form>

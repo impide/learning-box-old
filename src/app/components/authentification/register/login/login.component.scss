@@ -1,0 +1,20 @@
+.login-form {
+  transform: translateX(100px);
+
+  .form-container {
+    margin-bottom: 2rem;
+
+    input {
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+    }
+  }
+
+  .submit-btn button {
+    background: linear-gradient(180.37deg, #011F3E 0.09%, #153981 100%);
+    border-radius: 5px;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    font-size: 20px;
+  }
+}

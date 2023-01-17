@@ -1,0 +1,35 @@
+<form class="login-form col-12 justify-content-center mt-5">
+  <!-- Email -->
+  <div class="row form-container">
+    <div class="form-group email">
+      <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      name="email"
+      autocomplete="off"
+      required>
+    </div>
+  </div>
+  <!-- Password -->
+  <div class="row form-container">
+    <div class="form-group password">
+      <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      name="password"
+      autocomplete="off"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      required>
+    </div>
+  </div>
+  <div class="row submit-btn">
+    <div class="text-center mb-3">
+      <button class="btn col-4 text-white mb-3" type="submit">
+        Se connecter
+      </button>
+      <p>ou Mot de passe oublié</p>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+.authentification-container {
+  padding-top: 10rem;
+  padding-left: 2rem;
+  background-image: url(../../../assets/img/background.png);
+  background-position: center;
+  background-size: cover;
+  min-height: calc(100vh - 84.5px);
+
+  .title h3 {
+    font-size: 50px;
+  }
+
+  .slogan p {
+    font-size: 20px;
+  }
+
+  button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
