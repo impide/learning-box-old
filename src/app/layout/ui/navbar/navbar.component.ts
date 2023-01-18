@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from 'src/app/components/authentification/register/register.component';
+import { RegisterAnimationService } from '../../material/animation/register-animation';
 
 @Component({
   selector: 'app-navbar',
@@ -9,28 +10,20 @@ import { RegisterComponent } from 'src/app/components/authentification/register/
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    public registerAnimation: RegisterAnimationService) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(): void {
-    this.dialog.open(RegisterComponent, {
-      panelClass: [
-        'col-12',
-        'col-sm-8',
-        'col-md-6',
-        'col-lg-5',
-        'col-xl-4',
-        'col-xxl-4',
-        'animate__animated',
-        'animate__slideInUp',
-      ],
-      autoFocus: false
-    })
-  };
+  onAuth(value: string): void {
+    if (value === 'login') {
+      this.registerAnimation.toLoginForm();
+    } else {
+      this.registerAnimation.toSignupForm();
+    }
 
-  onSignup(): void {
     this.dialog.open(RegisterComponent, {
       panelClass: [
         'col-12',
@@ -43,7 +36,7 @@ export class NavbarComponent implements OnInit {
         'animate__slideInUp',
       ],
       autoFocus: false
-    })
+    });
   }
 
 }

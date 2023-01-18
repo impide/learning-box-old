@@ -1,4 +1,4 @@
-<form class="signup-form col-12 justify-content-center mt-5">
+<form (submit)="onSignup(signupForm)" class="signup-form col-12 justify-content-center mt-5" #signupForm="ngForm">
   <!-- Pseudo -->
   <div class="row form-container">
     <div class="form-group pseudo">
@@ -9,8 +9,16 @@
       name="pseudo"
       autocomplete="off"
       pattern="[A-Za-z\d\.]{3,10}"
-      required minlength="4">
+      required minlength="4"
+      ngModel #pseudo="ngModel">
     </div>
+    <!-- Error -->
+    <span *ngIf="pseudo.errors?.['required'] && pseudo.touched" class="text-danger">
+      Veuillez entrez un pseudo
+    </span>
+    <span *ngIf="pseudo.errors?.['pattern'] && pseudo.touched" class="text-danger">
+      Votre pseudo doit contenir au minimum 3 caractères
+    </span>
   </div>
   <!-- Email -->
   <div class="row form-container">
@@ -21,8 +29,16 @@
       placeholder="Email"
       name="email"
       autocomplete="off"
-      required>
+      required email
+      ngModel #email="ngModel">
     </div>
+    <!-- Error -->
+    <span *ngIf="email.errors?.['required'] && email.touched" class="text-danger">
+      Veuillez entrez un email
+    </span>
+    <span *ngIf="email.errors?.['email']" class="text-danger">
+      Veuillez entrez un email valide
+    </span>
   </div>
   <!-- Email Confirmation -->
   <div class="row form-container">
@@ -33,8 +49,16 @@
       placeholder="Email Confirmation"
       name="emailConfirm"
       autocomplete="off"
-      required>
+      required ngModel
+      #emailConfirm="ngModel">
     </div>
+    <!-- Error -->
+    <span *ngIf="emailConfirm.errors?.['required'] && emailConfirm.touched" class="text-danger">
+      Veuillez confirmez votre email
+    </span>
+    <span *ngIf="emailConfirm.value?.length > 0 && emailConfirm.value !== email.value && emailConfirm.touched" class="text-danger">
+      Votre email ne correspond pas
+    </span>
   </div>
   <!-- Password -->
   <div class="row form-container">
@@ -46,8 +70,16 @@
       name="password"
       autocomplete="off"
       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-      required>
+      required ngModel
+      #password="ngModel">
     </div>
+    <!-- Error -->
+    <span *ngIf="password.errors?.['required'] && password.touched" class="text-danger">
+      Veuillez entrez un mot de passe
+    </span>
+    <span *ngIf="password.errors?.['pattern']" class="text-danger">
+      Votre mot de passe doit contenir: 1 lettre majuscule, 1 lettre minuscule et 8 caractères minimum
+    </span>
   </div>
   <!-- Password Confirmation -->
   <div class="row form-container">
@@ -59,15 +91,23 @@
       name="passwordConfirm"
       autocomplete="off"
       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-      required>
+      required ngModel
+      #passwordConfirm="ngModel">
     </div>
+    <!-- Error -->
+    <span *ngIf="passwordConfirm.errors?.['required'] && passwordConfirm.touched" class="text-danger">
+      Veuillez entrez un mot de passe
+    </span>
+    <span *ngIf="passwordConfirm.errors?.['pattern'] && passwordConfirm.value !== password.value" class="text-danger">
+      Votre mot de passe ne correspond pas
+    </span>
   </div>
   <div class="row submit-btn">
     <div class="text-center mb-3">
       <button class="btn col-4 text-white mb-3" type="submit">
         S'inscrire
       </button>
-      <p>En vous inscrivant, vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.</p>
+      <p>En vous inscrivant, vous acceptez nos <span>Conditions d'utilisation</span> et notre <span>Politique de confidentialité</span>.</p>
     </div>
   </div>
 </form>
