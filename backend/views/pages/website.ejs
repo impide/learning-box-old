@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Website - Formation</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Documentations</span>
+      </div>
+    </nav>
+  </header>
+    <div class="accordion" id="accordionExample">
+        <!-- Admins -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Admins
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p><strong>** Add one Category **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/admins/category/:adminId/:parentId</a></p>
+              <p><strong>Params</strong> : Adding a Category takes 2 parameters, the <u>ID of the admin</u> who wants to add the category, and the <u>ID of the category's parent</u></p>
+              <p><strong>Body</strong> : Adding a Category requires a Body that includes a <u>title</u> and a <u>description</u></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>5 characters minimum for the title</li>
+                <li>10 characters minimum for the description</li>
+              </ul></p>
+            <hr>
+            <p><strong>** Update one Category **</strong></p>
+            <p><strong>Method</strong> : PATCH</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/admins/:adminId/category/:categoryId</a></p>
+              <p><strong>Params</strong> : Updating a Category takes 2 parameters, the <u>ID of the admin</u> who wants to update the category, and the <u>ID of the category's itself</u></p>
+              <p><strong>Body</strong> : Updating a Category requires an Optional Body that includes a <u>title</u> and/or a <u>description</u></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>5 characters minimum for the title</li>
+                <li>10 characters minimum for the description</li>
+              </ul></p>
+              <hr>
+              <p><strong>** Update Course of Another Teacher Partially **</strong></p>
+              <p><strong>Method</strong> : PATCH</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/admins/:adminId/courseTeacher/:courseId</a></p>
+              <p><strong>Params</strong> : Updating a Teacher's Course takes 2 parameters, the <u>ID of the admin</u> who wants to update the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Updating a Teacher's Course requires an Optional Body that includes a <u>label</u> and/or a <u>course_description</u></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>5 characters minimum for the label</li>
+                <li>10 characters minimum for the course_description</li>
+              </ul></p>
+              <hr>
+              <p><strong>** Delete Course of Another Teacher **</strong></p>
+              <p><strong>Method</strong> : DELETE</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/admins/:adminId/courseTeacher/:courseId</a></p>
+              <p><strong>Params</strong> : Delete a Teacher's Course takes 2 parameters, the <u>ID of the admin</u> who wants to delete the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Delete a Teacher's Course dosen't requires any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+              <hr>
+              <p><strong>** Delete one Category **</strong></p>
+              <p><strong>Method</strong> : DELETE</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/admins/:adminId/category/:categoryId</a></p>
+              <p><strong>Params</strong> : Delete a Category takes 2 parameters, the <u>ID of the admin</u> who wants to delete the category, and the <u>ID of the category's itself</u></p>
+              <p><strong>Body</strong> : Delete a Category dosen't requires any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            </div>
+          </div>
+        </div>
+        <!-- Teachers -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+              Teachers
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p><strong>** Get all Teachers **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/</a></p>
+              <p><strong>Params</strong> : Getting Teachers doesn't take any parameters</p>
+              <p><strong>Body</strong> : Getting Teachers doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            <hr>
+            <p><strong>** Add Course (Teacher [&] Admin) **</strong></p>
+            <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/:teacherId/category/:categoryId</a></p>
+              <p><strong>Params</strong> : Add a Course takes 2 parameters, the <u>ID of the teacher or admin</u> who wants to add the course, and the <u>ID of the category's itself</u></p>
+              <p><strong>Body</strong> : Adding a Course requires Body that includes 
+              <ul>
+                <li>label</li>
+                <li>course_description</li>
+                <li>language</li>
+                <li>price</li>
+                <li>files (video)</li>
+                <li>files (pdf)</li>
+                <li>teacher_id</li>
+                <li>category_id</li>
+              </ul></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>5 characters minimum for the title</li>
+                <li>10 characters minimum for the course_description</li>
+                <li>No restrictions for the language</li>
+                <li>Price must be a positive number</li>
+                <li>Files (video) must be in mp4 format</li>
+                <li>Files (pdf) must be in pdf format</li>
+                <li>Teacher_id must be a number</li>
+                <li>Category_id must be a number</li>
+              </ul></p>
+              <hr>
+              <p><strong>** Add Comment **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/:teacherId/add-comment/:courseId</a></p>
+              <p><strong>Params</strong> : Add a Comment takes 2 parameters, the <u>ID of the teacher</u> who wants to comment the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Adding a Comment require Body that include a <u>comment</u></p>
+              <p><strong>Validation</strong> : <ul> <li>4 characters minimum for the comment</li></ul></p>
+              <hr>
+              <p><strong>** Update Course (Teacher [&] Admin) **</strong></p>
+              <p><strong>Method</strong> : PATCH</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/:teacherId/courseTeacher/:courseId</a></p>
+              <p><strong>Params</strong> : Update a Course takes 2 parameters, the <u>ID of the teacher or admin</u> who wants to update the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Updating a Course requires an Optional Body that includes
+              <ul>
+                <li>label</li>
+                <li>course_description</li>
+                <li>language</li>
+                <li>price</li>
+                <li>Files (video)</li>
+                <li>Files (pdf)</li>
+              </ul></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>5 characters minimum for the label</li>
+                <li>10 characters minimum for the course_description</li>
+                <li>No restrictions for the language</li>
+                <li>Price must be a positive number</li>
+                <li>Files (video) must be in mp4 format</li>
+                <li>Files (pdf) must be in pdf format</li>
+              </ul></p>
+              <hr>
+              <p><strong>** Update Avatar (Teacher [&] Admin) **</strong></p>
+              <p><strong>Method</strong> : PUT</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/update-avatar/:teacherId</a></p>
+              <p><strong>Params</strong> : Update Avatar takes 1 parameter, the <u>ID of the teacher or admin</u> who wants to update avatar</p>
+              <p><strong>Body</strong> : Updating Avatar requires any Body that include a <u>image</u></p>
+              <p><strong>Validation</strong> : jpg, jpeg or png format</p>
+              <hr>
+              <p><strong>** Delete Course (Teacher [&] Admin) **</strong></p>
+              <p><strong>Method</strong> : DELETE</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/:teacherId/courseTeacher/:courseId</a></p>
+              <p><strong>Params</strong> : Delete a Course takes 2 parameters, the <u>ID of the teacher or admin</u> who wants to delete the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Deleting a Course dosen't requires any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+              <hr>
+              <p><strong>** Delete Account (Teacher Only) **</strong></p>
+              <p><strong>Method</strong> : DELETE</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/teachers/deleteAccount/:teacherId</a></p>
+              <p><strong>Params</strong> : Delete a Account takes 1 parameter, the <u>ID of the teacher</u> who wants to delete his account</p>
+              <p><strong>Body</strong> : Deleting a Account dosen't requires any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            </div>
+          </div>
+        </div>
+        <!-- Users -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+              Users
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p><strong>** Get all Users **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/</a></p>
+              <p><strong>Params</strong> : Get Users doesn't take any parameters</p>
+              <p><strong>Body</strong> : Getting Users doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            <hr>
+            <p><strong>** Signup **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/signup</a></p>
+              <p><strong>Params</strong> : Signup doesn't take any parameters</p>
+              <p><strong>Body</strong> : Signup requires a Body that includes
+              <ul>
+                <li>pseudo</li>
+                <li>email</li>
+                <li>password</li>
+              </ul></p>
+              <p><strong>Validation</strong> : <ul>
+                <li>3-10 characters for the pseudo</li>
+                <li>Allow domain .net, .fr or .net for the email</li>
+                <li>1 Minimum lower case, 1 minimum upper case and 1 minimum number</li>
+              </ul></p>
+              <hr>
+              <p><strong>** Login **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/login</a></p>
+              <p><strong>Params</strong> : Login doesn't take any parameters</p>
+              <p><strong>Body</strong> : Login requires Body that includes a <u>email</u> and a <u>password</u></p>
+              <p><strong>Validation</strong> : Same email and password entered when User Signup</p>
+              <hr>
+              <p><strong>** Add Course to Favorite **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/:userId/add-favorite/:courseId</a></p>
+              <p><strong>Params</strong> : Add a Course to Favorite takes 2 parameters, the <u>ID of the user</u> who want to add a course to favorite and the <u>ID of the course</u> hitself</p>
+              <p><strong>Body</strong> : Adding a Course to Favorite dosen't requires any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+              <hr>
+              <p><strong>** Add Comment **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/:userId/add-comment/:courseId</a></p>
+              <p><strong>Params</strong> : Add a Comment takes 2 parameters, the <u>ID of the user</u> who wants to comment the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Adding a Comment require a Body that include a <u>comment</u></p>
+              <p><strong>Validation</strong> : 4 characters minimum for the comment</p>
+              <hr>
+              <p><strong>** Add Note **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/:userId/add-note/:courseId</a></p>
+              <p><strong>Params</strong> : Add a Note takes 2 parameters, the <u>ID of the user</u> who wants to note the course, and the <u>ID of the course's itself</u></p>
+              <p><strong>Body</strong> : Adding a Note require a Body that include a <u>note</u></p>
+              <p><strong>Validation</strong> : 1 number minimum for the note</p>
+              <hr>
+              <p><strong>** Update Avatar **</strong></p>
+              <p><strong>Method</strong> : PUT</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/update-avatar/:userId</a></p>
+              <p><strong>Params</strong> : Update Avatar takes 1 parameter, the <u>ID of the user</u> who want to update his avatar</p>
+              <p><strong>Body</strong> : Updating Avatar require a Body that include a <u>image</u></p>
+              <p><strong>Validation</strong> : jpg, jpeg or png format</p>
+              <hr>
+              <p><strong>** Update Email **</strong></p>
+              <p><strong>Method</strong> : PUT</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/update-email/:userId</a></p>
+              <p><strong>Params</strong> : Update Email takes 1 parameter, the <u>ID of the user</u> who want to update his email</p>
+              <p><strong>Body</strong> : Updating Email require a Body that include a <u>email</u> and a <u>password</u></p>
+              <p><strong>Validation</strong> : Same email and password entered when User Signup</p>
+              <hr>
+              <p><strong>** Forgot Password **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/forgot-password</a></p>
+              <p><strong>Params</strong> : Forgot Password dosen't takes any parameters</p>
+              <p><strong>Body</strong> : Forgot Password require a Body that include a <u>email</u></p>
+              <p><strong>Validation</strong> : Same email entered when User Signup</p>
+              <hr>
+              <p><strong>** Reset Password **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/reset-password/:userId/:token</a></p>
+              <p><strong>Params</strong> : Reset Password (Get method) takes 2 parameters, the <u>ID of the user</u> who want to update his password and his <u>token</u></p>
+              <p><strong>Body</strong> : Reset Password (Get method) doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+              <hr>
+              <p><strong>** Reset Password **</strong></p>
+              <p><strong>Method</strong> : POST</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/reset-password/:userId/:token</a></p>
+              <p><strong>Params</strong> : Reset Password (Post method) takes 2 parameters, the <u>ID of the user</u> who want to update his password and his <u>token</u></p>
+              <p><strong>Body</strong> : Reset Password (Post method) require a Body that include a <u>new password</u> and <u>confirmation of this new password</u></p>
+              <p><strong>Validation</strong> : 1 Minimum lower case, 1 minimum upper case and 1 minimum number</p>
+              <hr>
+              <p><strong>** Delete Account **</strong></p>
+              <p><strong>Method</strong> : DELETE</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/users/deleteAccount/:userId</a></p>
+              <p><strong>Params</strong> : Delete account take 1 parameter, the <u>ID of the user</u> who want to delete his account</p>
+              <p><strong>Body</strong> : Delete account doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            </div>
+          </div>
+        </div>
+        <!-- Categories -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              Categories
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p><strong>** Get all Categories **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/categories/</a></p>
+              <p><strong>Params</strong> : Get Categories doesn't take any parameters</p>
+              <p><strong>Body</strong> : Getting Categories doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            </div>
+          </div>
+        </div>   
+        <!-- Courses -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+              Courses
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p><strong>** Get all Courses **</strong></p>
+              <p><strong>Method</strong> : GET</p> 
+              <p><strong>API</strong> : <a href="#">http://localhost:2000/courses/</a></p>
+              <p><strong>Params</strong> : Get Courses doesn't take any parameters</p>
+              <p><strong>Body</strong> : Getting Courses doesn't take any Body</p>
+              <p><strong>Validation</strong> : No validation required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous">
+</script>
+</html>

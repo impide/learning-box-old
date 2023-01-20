@@ -1,0 +1,5 @@
+PORT=port_number
+DATABASE_URL=postgresql://role_bdd:password_bdd@localhost/name_bdd
+CORS_DOMAINS=name_domain
+SECRET=secret_key_for_jwt
+RESET_PASSWORD=secret_key_for_reset_password

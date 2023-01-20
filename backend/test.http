@@ -1,0 +1,154 @@
+@endpoint = http://localhost:{{$dotenv PORT}}/api
+
+### CATEGORY
+### Get all Categories
+GET {{endpoint}}/categories/
+
+### COURSE
+### Get all Courses
+GET {{endpoint}}/courses/
+
+### Get one Course
+GET {{endpoint}}/courses/1
+
+### USER ####################################
+### Get all (Usable for comments)
+GET {{endpoint}}/users/
+
+### Signup
+POST {{endpoint}}/users/signup
+content-type: application/json
+
+{
+    "email": "jason@gmail.net",
+    "pseudo": "Jason",
+    "password": "aZ1"
+}
+
+### Login (Join Course and Category)
+POST {{endpoint}}/users/login
+content-type: application/json
+
+{
+    "email": "nathanael.rayapin@gmail.com",
+    "password": "Azerty123"
+}
+
+### Update Pseudo
+PUT {{endpoint}}/users/update-pseudo/1
+content-type: application/json
+
+{
+    "pseudo": "YanisNaji"
+}
+
+### Update Email
+PUT {{endpoint}}/users/update-email/1
+content-type: application/json
+
+{
+    "email": "yanisnaji@gmail.com",
+    "password": "Azerty123"
+}
+
+### Forget Password
+POST {{endpoint}}/users/forgot-password
+content-type: application/json
+
+{
+    "email": "nathanael.rayapin@gmail.com"
+}
+
+### Reset Password
+GET {{endpoint}}/users/reset-password/4/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJuYXRoYW5hZWwucmF5YXBpbkBnbWFpbC5jb20iLCJpYXQiOjE2NzA3NTcwOTksImV4cCI6MTY3MDc1ODI5OX0.cbUnpXzrZ-1LvhK58blIsOmM59-_MvqQnjGu4sp-Ozk
+
+### Update Password
+POST {{endpoint}}/users/reset-password/2/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJuYXRoYW5hZWwucmF5YXBpbkBnbWFpbC5jb20iLCJpYXQiOjE2NzA3NTcwOTksImV4cCI6MTY3MDc1ODI5OX0.cbUnpXzrZ-1LvhK58blIsOmM59-_MvqQnjGu4sp-Ozk
+
+### Add Course to Favorite
+GET {{endpoint}}/users/1/add-favorite/3
+
+### Add Comment by User
+POST {{endpoint}}/users/1/add-comment/1
+content-type: application/json
+
+{
+    "comment": "let'go"
+}
+
+### Add Note by User
+POST {{endpoint}}/users/2/add-note/1
+content-type: application/json
+
+{
+    "note": 1
+}
+
+### Delete (Account)
+DELETE {{endpoint}}/users/deleteAccount/4
+
+### TEACHER ####################################
+### Get all Teachers (Join Course and Category)
+GET {{endpoint}}/teachers/
+
+### Update one Course (label must be UNIQUE)
+PATCH {{endpoint}}/teachers/1/courseTeacher/3
+content-type: application/json
+
+{
+    "label": "Economie de l'énergie",
+    "language": "English",
+    "price": 4.49
+}
+
+### Add comment by Teacher
+POST {{endpoint}}/teachers/1/add-comment/1
+content-type: application/json
+
+{
+    "comment": "Vous gagner !"
+}
+
+### Delete one Course
+DELETE {{endpoint}}/teachers/1/courseTeacher/1
+
+### Delete Account
+DELETE {{endpoint}}/teachers/deleteAccount/3
+
+
+### ADMIN #######################################
+### Add Category
+POST {{endpoint}}/admins/category/1/1
+content-type: application/json
+
+{
+    "title": "Developpeur",
+    "description": "Développer du code"
+}
+
+### Update Category
+PATCH {{endpoint}}/admins/1/category/1
+content-type: application/json
+
+{
+    "title": "Gestion du back",
+    "description": "Attention au retomber"
+}
+
+### Update one Course (label must be UNIQUE)
+PATCH {{endpoint}}/admins/1/courseTeacher/2
+content-type: application/json
+
+{
+    "label": "Gestion de Jeux vidéo"
+}
+
+### Delete one Course 
+DELETE {{endpoint}}/admins/1/courseTeacher/2
+
+### Delete one Category
+DELETE {{endpoint}}/admins/1/category/1
+
+### Create Payment (Stripe)
+GET http://localhost:3000/stripe/payments/1/create-payment-intent/2
+
