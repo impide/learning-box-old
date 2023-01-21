@@ -27,12 +27,15 @@ export default {
 
     // Let User create an Account
     async signup(req, res) {
-        console.log('CONTROLLER PASSED');
-        const { email, password } = req.body;
+        const { email, password, role } = req.body;
 
         const user = await userDataMapper.findOneUserByEmail(email);
         if (user) {
             throw new UserAlreadyExist('This email address is already associated to an account');
+        }
+
+        if (role > 0) {
+            throw new Unauthorized('Unauthorized');
         }
 
         // Encrypted Password and Update it
@@ -43,7 +46,6 @@ export default {
 
         // Insert one User
         const savedUser = await userDataMapper.insertOneUser(newUser);
-        console.log('DATAMAPPER PASSED');
         delete savedUser.password;
 
         return res.status(200).json({
@@ -55,21 +57,25 @@ export default {
 
     // Let User log into an Account.
     async login(req, res) {
+        console.log('ENTER');
         const { email, password } = req.body;
 
         // Get all Users & Admins
         const user = await userDataMapper.findOneUserJoinByEmail(email);
         const teacher = await teacherDataMapper.findOneTeacherJoinByEmail(email);
 
-        // For the result that is true, it will be => anyUser
+        // For the result that is true (user or teacher) => assigned to anyUser
         const anyUser = { ...user, ...teacher };
         if (Object.values(anyUser)) {
-            // Compare BDD Password with Entered Password **Temporary Hardly Emcrypted**
             let comparePassword;
-            if (anyUser.pseudo === 'Yanis' || anyUser.pseudo === 'Zijun' || anyUser.pseudo === 'Louis'
-                || anyUser.pseudo === 'Nathanael' || anyUser.pseudo === 'Jean' || anyUser.pseudo === 'Adam') {
+
+            // If User already in BDD, Hash Password and Compare **Temporary Hardly Emcrypted**
+            if (anyUser.email === 'yanis@gmail.com'
+                || anyUser.email === 'nathanael.rayapin@gmail.com'
+                || anyUser.email === 'jeanjacque@gmail.com') {
                 const encryptedPassword = await bcrypt.hash(anyUser.password, 10);
                 comparePassword = await bcrypt.compare(password, encryptedPassword);
+            // Else Compare directly
             } else {
                 comparePassword = await bcrypt.compare(password, anyUser.password);
             }
@@ -78,7 +84,6 @@ export default {
                 throw new Unauthorized('Connection Unauthorized');
             }
 
-            // If it's correct, delete password from Result
             delete anyUser.password;
             const { SECRET } = process.env;
 

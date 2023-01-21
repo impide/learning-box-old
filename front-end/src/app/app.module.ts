@@ -19,9 +19,9 @@ import { NavbarComponent } from './layout/ui/navbar/navbar.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/auth/auth.effect';
 import { StoreModule } from '@ngrx/store';
-import { authReducer } from './store/auth/auth.reducer';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { authReducer, loginReducer, signupReducer } from './store/auth/auth.reducer';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatSnackBarModule,
     EffectsModule.forRoot([]),
     EffectsModule.forFeature([AuthEffects]),
-    StoreModule.forRoot({ auth: authReducer }),
+    StoreModule.forRoot({
+      signup: signupReducer,
+      login: loginReducer,
+      auth: authReducer
+     }),
     !environment.production
       ? StoreDevtoolsModule.instrument({ maxAge: 5 })
       : [],

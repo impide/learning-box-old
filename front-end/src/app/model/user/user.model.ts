@@ -1,9 +1,10 @@
+import { Course } from "../course/course.model";
+
 export class User {
-  constructor(public pseudo: string, public email: string, public password: string, public avatar: string, public role: number) {
-    this.pseudo = pseudo;
-    this.email = email;
-    this.password = password;
-    this.avatar = avatar;
-    this.role = role;
-  }
+  id: number;
+  email: string;
+  pseudo: string;
+  avatar: string;
+  role: number;
+  courses: Course;
 }

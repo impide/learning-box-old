@@ -8,6 +8,7 @@ export default Joi.object({
         .required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'fr'] } }).required(),
     password: Joi.string()
+        .min(8)
         .required(),
     avatar: Joi.string()
         .required(),

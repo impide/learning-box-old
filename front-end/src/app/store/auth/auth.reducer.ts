@@ -1,21 +1,19 @@
-/* eslint-disable no-undef */
-import { AuthState, authAdapter, initialState } from './auth.state';
+import { authAdapter, AuthState, initialAuthState, initialLoginState, initialSignupState, loginAdapter, LoginState, signupAdapter, SignupState } from './auth.state';
 import { AuthActions, AuthActionsTypes } from './auth.action';
 
-export function authReducer(
-  state = initialState,
+export function signupReducer(
+  state = initialSignupState,
   action: AuthActions
-): AuthState {
+): SignupState {
   switch (action.type) {
     case AuthActionsTypes.SIGNUP:
-      console.log("SIGNUP :", action.payload);
       return {
         ...state,
         loading: true,
         error: null,
       };
     case AuthActionsTypes.SIGNUP_SUCCESS:
-      return authAdapter.addOne(action.payload, {
+      return signupAdapter.addOne(action.payload, {
         ...state,
         loading: false,
         error: null,
@@ -26,6 +24,45 @@ export function authReducer(
         loading: false,
         error: action.payload,
       };
+    default:
+      return state;
+  }
+}
+
+export function loginReducer(
+  state = initialLoginState,
+  action: AuthActions
+): LoginState {
+  switch (action.type) {
+    case AuthActionsTypes.LOGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case AuthActionsTypes.LOGIN_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+export function authReducer(
+  state = initialAuthState,
+  action: AuthActions
+): AuthState {
+  switch (action.type) {
+    case AuthActionsTypes.LOGIN_SUCCESS:
+      return authAdapter.addOne(action.payload, {
+        ...state,
+        currentUser: action.payload.result,
+        loading: false,
+        error: null,
+      });
     default:
       return state;
   }

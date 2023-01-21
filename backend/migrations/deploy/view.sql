@@ -21,7 +21,7 @@ GROUP BY
 
 CREATE VIEW "teachers_with_course_and_category" AS
 SELECT 
-    "teacher"."id","email","pseudo","avatar","role",
+    "teacher"."id", "email", "pseudo", "password", "avatar", "role",
     COALESCE(JSON_AGG(JSON_BUILD_OBJECT('id',"course"."id",'label', "label", 'course_description', "course_description", 'author', "author", 'language', "language", 'note', "note", 'price', "price", 'comment', "comment", 'video', "video", 'PDF', "PDF", 'category_title', "title", 'category_description', "category"."description"))
     FILTER(WHERE "label" IS NOT NULL), '[]') AS "courses"
 FROM 
@@ -31,7 +31,7 @@ LEFT OUTER JOIN
 LEFT OUTER JOIN 
     "category" ON "course"."category_id" = "category"."id"
 GROUP BY 
-    "teacher"."id","email","pseudo","avatar","role";
+    "teacher"."id", "email", "pseudo", "password", "avatar", "role";
 
 
 CREATE VIEW "course_with_category" AS

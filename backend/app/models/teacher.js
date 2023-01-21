@@ -20,7 +20,7 @@ export default {
 
     // Find one Teacher by Email join with
     async findOneTeacherJoinByEmail(email) {
-        const result = await client.query('SELECT * FROM "teacher" WHERE "email" = $1', [email]);
+        const result = await client.query('SELECT * FROM "teachers_with_course_and_category" WHERE "email" = $1', [email]);
 
         if (result.rowCount === 0) {
             return null;

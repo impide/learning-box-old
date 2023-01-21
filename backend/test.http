@@ -20,9 +20,11 @@ POST {{endpoint}}/users/signup
 content-type: application/json
 
 {
-    "email": "jason@gmail.net",
+    "email": "jason@gmail.com",
     "pseudo": "Jason",
-    "password": "aZ1"
+    "password": "Azerty123!",
+    "avatar": "avatar",
+    "role": 0
 }
 
 ### Login (Join Course and Category)

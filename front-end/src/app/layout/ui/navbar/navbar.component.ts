@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { RegisterComponent } from 'src/app/components/authentification/register/register.component';
+import { AuthService } from 'src/app/service/auth/auth.service';
+import { AuthFeatureStoreSelectors, AuthFeatureStoreState } from 'src/app/store/auth/auth.index';
 import { RegisterAnimationService } from '../../material/animation/register-animation';
 
 @Component({
@@ -9,12 +13,16 @@ import { RegisterAnimationService } from '../../material/animation/register-anim
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isAuth$: Observable<boolean>;
 
   constructor(
     public dialog: MatDialog,
-    public registerAnimation: RegisterAnimationService) { }
+    public registerAnimation: RegisterAnimationService,
+    private authService: AuthService,
+    private store: Store<AuthFeatureStoreState.AuthState>) { }
 
   ngOnInit(): void {
+    this.isAuth$ = this.authService.isAuth$;
   }
 
   onAuth(value: string): void {

@@ -7,8 +7,9 @@
       <div class="profile dropdown">
         <i class="bi bi-person-circle dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false"></i>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" (click)="onAuth('login')">Se connecter</a></li>
-          <li><a class="dropdown-item" (click)="onAuth('signup')">S'inscrire</a></li>
+          <li *ngIf="(isAuth$ | async) === false"><a class="dropdown-item" (click)="onAuth('login')">Se connecter</a></li>
+          <li *ngIf="(isAuth$ | async) === false"><a class="dropdown-item" (click)="onAuth('signup')">S'inscrire</a></li>
+          <li *ngIf="(isAuth$ | async) === true"><a class="dropdown-item" (click)="onAuth('signup')">Se déconnecter</a></li>
         </ul>
       </div>
     </nav>

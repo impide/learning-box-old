@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { User } from 'src/app/model/user/user.model';
+import { UserSignup } from 'src/app/model/user/userSignup.model';
 import { AuthFeatureStoreActions, AuthFeatureStoreState } from 'src/app/store/auth/auth.index';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthFeatureStoreActions, AuthFeatureStoreState } from 'src/app/store/au
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private store : Store<AuthFeatureStoreState.AuthState>) { }
+  constructor(private store : Store<AuthFeatureStoreState.SignupState>) {}
 
   ngOnInit(): void {}
 
@@ -20,8 +20,7 @@ export class SignupComponent implements OnInit {
     const avatar = '../../../../assets/img/avatar.avif';
     const role = 0;
 
-    const user = new User(pseudo, email, password, avatar, role);
-    console.log(user);
+    const user = new UserSignup(pseudo, email, password, avatar, role);
     this.store.dispatch(new AuthFeatureStoreActions.SignUp(user));
   }
 
