@@ -15,6 +15,9 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CoursesListComponent } from '../components/courses-list/courses-list.component';
 import { CourseComponent } from '../components/courses-list/course/course.component';
 import { FooterComponent } from '../components/footer/footer.component';
+import { ParallaxComponent } from '../components/parallax/parallax.component';
+
+import { ParallaxItemDirective } from '../../core/parallax-data';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { FooterComponent } from '../components/footer/footer.component';
     CatalogComponent,
     CoursesListComponent,
     CourseComponent,
-    FooterComponent
+    FooterComponent,
+    ParallaxComponent,
+    ParallaxItemDirective
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,9 @@ import { FooterComponent } from '../components/footer/footer.component';
     CatalogComponent,
     CoursesListComponent,
     CourseComponent,
-    FooterComponent
+    FooterComponent,
+    ParallaxComponent,
+    ParallaxItemDirective
   ]
 })
 export class LayoutModule {}

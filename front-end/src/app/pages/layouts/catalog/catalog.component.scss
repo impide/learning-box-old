@@ -17,10 +17,15 @@
       background: linear-gradient(180.37deg, #011F3E 0.09%, #153981 100%);
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
+      transition: all .2s;
 
       .bi-play-circle {
         font-size: 30px;
       }
+    }
+
+    .custom-btn:hover {
+      transform: scale(.9);
     }
 
     .categories-list {
@@ -35,6 +40,7 @@
 
         li {
           position: relative;
+          cursor: pointer;
         }
 
         li .red-point {
@@ -46,6 +52,11 @@
           background-color: #F04863;
           border-radius: 50%;
           z-index: -1;
+          transition: all .2s;
+        }
+
+        li:hover .red-point {
+          background-color: #153981;
         }
 
         li p.name {

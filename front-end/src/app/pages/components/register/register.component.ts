@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterAnimation, RegisterAnimationService } from '../../../utils/animations/register-animation';
+import { RegisterAnimation, RegisterAnimationService } from '../../../utils/animations/index';
 
 @Component({
   selector: 'app-register',

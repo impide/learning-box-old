@@ -3,9 +3,9 @@ import { select, Store } from '@ngrx/store';
 import { filter, Observable, skipWhile } from 'rxjs';
 import { MaterialService } from '../../../utils/materials/material.service';
 import { AuthFeatureStoreActions, AuthFeatureStoreSelectors, AuthFeatureStoreState } from '../../../store/auth-store/index';
-import { RegisterAnimationService } from '../../../utils/animations/register-animation';
+import { RegisterAnimationService } from '../../../utils/animations/index';
 import { RegisterComponent } from '../register/register.component';
-import { NavbarData } from '../../../core/navbar-data';
+import { NavbarData } from '../../../core/index';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   isAuth$: Observable<boolean>;
-  userEmail$: Observable<string>;
+  userPseudo$: Observable<string>;
 
   navbarRoute: NavbarData[] = NavbarData;
 
@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
       filter(value => value !== undefined),
     )
 
-    this.userEmail$ = this.store.pipe(
-      select(AuthFeatureStoreSelectors.selectUserEmail),
+    this.userPseudo$ = this.store.pipe(
+      select(AuthFeatureStoreSelectors.selectUserPseudo),
       skipWhile(val => val === null),
       filter(value => value !== undefined),
     )

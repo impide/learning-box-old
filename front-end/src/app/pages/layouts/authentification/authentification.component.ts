@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, pipe } from 'rxjs';
-import { AuthFeatureStoreSelectors, AuthFeatureStoreState } from 'src/app/store';
+import { AuthFeatureStoreSelectors, AuthFeatureStoreState } from '../../../store/index';
 
 @Component({
   selector: 'app-authentification',

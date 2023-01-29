@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { IUserData } from './interface';
-import { RegisterAnimationService } from '../../../utils/animations/register-animation';
+import { RegisterAnimationService } from '../../../utils/animations/index';
 import { MaterialService } from '../../../utils/materials/material.service';
-import { AuthService } from 'src/app/store/auth-store/services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 import * as fromAuthActions from './action';
 import { AuthActions } from './action';
-import { SignupModel } from 'src/app/models';
+import { SignupModel } from '../../../models/index';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {

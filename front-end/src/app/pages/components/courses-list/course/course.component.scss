@@ -1,9 +1,10 @@
 .course {
   width: 370px;
+  cursor: pointer;
+  transition: all .2s;
 
   .preview-cover {
     height: 180px;
-    cursor: pointer;
   }
 
   .preview-cover img {
@@ -16,7 +17,6 @@
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 0.05em;
-    cursor: pointer;
   }
 
   p.author {
@@ -25,7 +25,6 @@
     line-height: 18px;
     letter-spacing: 0.05em;
     color: #8F8F8F;
-    cursor: pointer;
   }
 
   .rate-and-price {
@@ -40,4 +39,8 @@
       letter-spacing: 0.05em;
     }
   }
+}
+
+.course:hover {
+  background: #f0f0f0;
 }

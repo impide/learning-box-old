@@ -19,7 +19,7 @@
       <div class="profile dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="profile-info d-flex align-items-center">
           <div class="userEmail" *ngIf="(isAuth$ | async)">
-            <p class="text-white mb-0 me-3">{{userEmail$ | async}}</p>
+            <p class="text-white mb-0 me-3">{{userPseudo$ | async}}</p>
           </div>
           <i class="bi bi-person-circle text-white"></i>
         </div>

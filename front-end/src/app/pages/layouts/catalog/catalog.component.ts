@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CategoriesData } from 'src/app/core/categories-data';
+import { CategoriesData } from '../../../core/index';
 
 @Component({
   selector: 'app-catalog',
