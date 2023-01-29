@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CategoriesData } from 'src/app/core/categories-data';
 
 @Component({
   selector: 'app-catalog',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent {
-
+  categories: CategoriesData[] = CategoriesData;
 }

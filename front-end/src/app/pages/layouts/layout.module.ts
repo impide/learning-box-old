@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +12,9 @@ import { SignupComponent } from '../components/register/signup/signup.component'
 import { LoginComponent } from '../components/register/login/login.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { CoursesListComponent } from '../components/courses-list/courses-list.component';
+import { CourseComponent } from '../components/courses-list/course/course.component';
+import { FooterComponent } from '../components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,20 +23,29 @@ import { CatalogComponent } from './catalog/catalog.component';
     SignupComponent,
     LoginComponent,
     NavbarComponent,
-    CatalogComponent
+    CatalogComponent,
+    CoursesListComponent,
+    CourseComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     AuthentificationComponent,
     RegisterComponent,
     SignupComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CatalogComponent,
+    CoursesListComponent,
+    CourseComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule {}

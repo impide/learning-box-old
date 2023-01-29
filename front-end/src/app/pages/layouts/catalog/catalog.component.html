@@ -1,1 +1,31 @@
-<p>catalog works!</p>
+<div class="row">
+  <div class="col-12 px-0">
+    <div class="catalog-container d-flex justify-content-between mt-5">
+      <div class="intro-person col-4">
+        <img src="../../../../assets/img/mascot.png" alt="">
+      </div>
+      <div class="intro-presentation col-6">
+        <h1 class="title">Des cours en ligne<br> abordables pour tous</h1>
+        <p class="description my-3">Lorem ipsum dolor sit amet consectetur. Et pulvinar dolor pulvinar<br>
+        fusce malesuada sagittis elementum ante. Donec nunc sed nibh turpis.</p>
+        <button class="btn custom-btn text-white d-flex align-items-center mt-5">
+          Comment ça marche ?
+          <i class="bi bi-play-circle ms-3"></i>
+        </button>
+        <div class="categories-list">
+          <ul class="ps-0 mb-0 d-flex">
+            <li class="col-4" *ngFor="let category of categories">
+              <span class="red-point"></span>
+              <p class="name mb-0">{{ category.categoryName }}</p>
+              <p class="desc mb-0">{{ category.categoryDesc }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="courses-container">
+      <app-courses-list></app-courses-list>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

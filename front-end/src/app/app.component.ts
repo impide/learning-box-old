@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (typeof localStorage !== 'undefined') {
+    if (localStorage.getItem('auth')) {
       this.store.dispatch(new AuthFeatureStoreActions.AutoLogin());
     }
   }
