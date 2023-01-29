@@ -1,0 +1,47 @@
+.footer {
+  background: linear-gradient(180.37deg, #153981 0.09%, #011F3E 100%);
+
+  .body-footer {
+    padding-bottom: 8rem;
+
+    .footer-infos {
+      .mentions ul {
+        list-style: none;
+
+        li a {
+          cursor: pointer;
+        }
+
+        li a:hover {
+          text-decoration: underline;
+        }
+
+        li:not(li:nth-last-child(1)) {
+          margin-bottom: 12px;
+        }
+      }
+
+      .social-media i {
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      .social-media i:not(.social-media i:nth-of-type(1)) {
+        margin-left: 3rem;
+      }
+    }
+
+  }
+}
+
+.divider {
+  border: 1px solid #fff;
+}
+
+.sub-footer {
+  .brand h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+  }
+}
