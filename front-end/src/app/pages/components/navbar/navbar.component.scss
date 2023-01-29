@@ -1,0 +1,34 @@
+.navbar {
+  background: linear-gradient(180.37deg, #011F3E 0.09%, #153981 100%);
+  border-bottom: 1px solid #FFFFFF;
+
+  .brand h1 {
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .profile i {
+    font-size: 45px;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle:empty::after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    left: -110px;
+
+    li a {
+      cursor: pointer;
+    }
+  }
+}
+
+::ng-deep .custom-modal {
+  mat-dialog-container {
+    border-radius: 20px !important;
+    padding: 0 !important;
+    background: transparent;
+  }
+}
