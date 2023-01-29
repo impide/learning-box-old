@@ -1,0 +1,22 @@
+.categories-list {
+  margin-bottom: 5rem;
+
+  .category-name {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+
+  .courses {
+    ul {
+      list-style: none;
+    }
+
+    ul li:not(ul li:nth-last-child(1)) {
+      margin-right: 3rem;
+    }
+  }
+}
