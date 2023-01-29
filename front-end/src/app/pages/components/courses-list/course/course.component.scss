@@ -1,0 +1,43 @@
+.course {
+  width: 370px;
+
+  .preview-cover {
+    height: 180px;
+    cursor: pointer;
+  }
+
+  .preview-cover img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  p.title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+
+  p.author {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: #8F8F8F;
+    cursor: pointer;
+  }
+
+  .rate-and-price {
+    .rate {
+      color: #FED605;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
