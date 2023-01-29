@@ -8,7 +8,8 @@ export enum AuthActionsTypes {
   LOGIN = 'LOGIN',
   LOGIN_SUCCESS = 'LOGIN_SUCCESS',
   LOGIN_ERROR = 'LOGIN_ERROR',
-  AUTO_LOGIN = 'AUTO_LOGIN'
+  AUTO_LOGIN = 'AUTO_LOGIN',
+  LOGOUT = 'LOGOUT'
 }
 
 // Signup
@@ -52,6 +53,11 @@ export class AutoLogin implements Action {
   readonly type = AuthActionsTypes.AUTO_LOGIN;
 }
 
+// Logout
+export class Logout implements Action {
+  readonly type = AuthActionsTypes.LOGOUT;
+}
+
 export type AuthActions =
   | SignUp
   | SignUpSuccess
@@ -59,4 +65,5 @@ export type AuthActions =
   | Login
   | LoginSuccess
   | LoginError
-  | AutoLogin;
+  | AutoLogin
+  | Logout;

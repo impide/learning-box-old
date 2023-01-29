@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Observable, catchError, map, of, switchMap } from 'rxjs';
+import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { IUserData } from './interface';
 import { RegisterAnimationService } from '../../../utils/animations/register-animation';
 import { MaterialService } from '../../../utils/materials/material.service';
@@ -68,6 +68,17 @@ export class AuthEffects {
     )
   )
 
+  Logout$: Observable<AuthActions> = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType<fromAuthActions.Logout>(fromAuthActions.AuthActionsTypes.LOGOUT),
+        tap(() => {
+          return this.handleUserLogout();
+        })
+      ),
+    { dispatch: false }
+  );
+
   isRegistered(): void {
     this.materialService.openSnackBar('User Created Successfully', 3);
     this.registerAnimation.toLoginForm();
@@ -78,13 +89,21 @@ export class AuthEffects {
     localStorage.setItem('auth', JSON.stringify(this.handleUserStorage(userData)));
 
     this.materialService.closeDialog();
-    this.router.navigate([`/home`]);
+    this.router.navigate([`/catalog`]);
   }
 
   handleUserStorage(userData: IUserData) {
     const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
     userData.result.expirationDate = expirationDate;
     return userData;
+  }
+
+  handleUserLogout() {
+    if (localStorage.getItem('auth')) {
+      localStorage.removeItem('auth');
+    }
+
+    this.router.navigate([`/`]);
   }
 
   showError(errorMsg: string): void {

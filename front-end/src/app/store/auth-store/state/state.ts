@@ -8,7 +8,9 @@ export interface AuthState extends EntityState<IUserData> {
   error: string | null;
 }
 
-export const authAdapter: EntityAdapter<IUserData> = createEntityAdapter<IUserData>();
+export const authAdapter: EntityAdapter<IUserData> = createEntityAdapter<IUserData>({
+  selectId: (iUserData: IUserData) => iUserData.result.id
+});
 
 const defaultAuth = {
   currentUser: null,
