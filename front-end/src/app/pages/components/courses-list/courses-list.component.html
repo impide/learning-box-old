@@ -4,8 +4,8 @@
   </div>
   <div class="courses d-flex">
     <ul class="d-flex ps-0 mb-0">
-      <li *ngFor="let course of courses">
-        <app-course></app-course>
+      <li *ngFor="let course of courses; let i = index">
+        <app-course [indexCourse]="i + 1"></app-course>
       </li>
     </ul>
   </div>

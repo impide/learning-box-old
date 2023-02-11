@@ -1,3 +1,6 @@
+.page-container {
+  overflow: hidden;
+
 .catalog-container {
   padding: 0px 8rem;
 
@@ -5,12 +8,12 @@
     position: relative;
 
     .title {
-      font-size: 70px;
+      font-size: 50px;
       font-weight: 400;
     }
 
     .description {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .custom-btn {
@@ -61,7 +64,7 @@
 
         li p.name {
           font-weight: 700;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 22px;
           letter-spacing: 0.05em;
         }
@@ -69,7 +72,7 @@
         li p.desc {
           width: 80%;
           font-weight: 400;
-          font-size: 15px;
+          font-size: 13px;
           line-height: 18px;
           letter-spacing: 0.05em;
           color: #8F8F8F;
@@ -83,6 +86,7 @@
       margin-bottom: 3rem;
     }
   }
+}
 }
 
 .courses-container {

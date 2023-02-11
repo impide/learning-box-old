@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node .",
     "dev": "SET NODE_ENV=development && nodemon index.js",
-    "resetDB": "sqitch revert -y && sqitch deploy"
+    "resetDB": "sqitch revert -y && sqitch deploy && SET NODE_ENV=development && nodemon index.js"
   },
   "repository": {
     "type": "git",

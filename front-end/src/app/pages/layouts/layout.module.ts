@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { RegisterComponent } from '../components/register/register.component';
@@ -39,7 +40,8 @@ import { ParallaxItemDirective } from '../../core/parallax-data';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    DragDropModule
   ],
   exports: [
     AuthentificationComponent,
