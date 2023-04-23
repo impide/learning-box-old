@@ -17,6 +17,6 @@ export default (displayType) => (err, req, res, next) => {
         // Else if occur in Documentation
     } else {
         // eslint-disable-next-line no-console
-        console.log(displayType);
+        res.status(status).json({ error: message });
     }
 };

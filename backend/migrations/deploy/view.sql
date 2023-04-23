@@ -5,7 +5,7 @@ BEGIN;
 CREATE VIEW "users_with_course_and_category" AS
 SELECT 
     "user"."id", "email", "pseudo", "password", "avatar", "role" , 
-    COALESCE(JSON_AGG(JSON_BUILD_OBJECT('label', "label", 'course_description', "course_description", 'author', "author", 'language', "language", 'note', "note", 'price', "price", 'comment', "comment", 'video', "video", 'pdf', "PDF", 'category_title', "title", 'category_description', "category"."description"))
+    COALESCE(JSON_AGG(JSON_BUILD_OBJECT('label', "label", 'course_description', "course_description", 'poster', "poster", 'author', "author", 'language', "language", 'note', "note", 'price', "price", 'comment', "comment", 'video', "video", 'pdf', "PDF", 'category_title', "title", 'category_description', "category"."description"))
 	FILTER (WHERE "label" IS NOT NULL), '[]') AS "courses"
 FROM 
     "user"
@@ -22,7 +22,7 @@ GROUP BY
 CREATE VIEW "teachers_with_course_and_category" AS
 SELECT 
     "teacher"."id", "email", "pseudo", "password", "avatar", "role",
-    COALESCE(JSON_AGG(JSON_BUILD_OBJECT('id',"course"."id",'label', "label", 'course_description', "course_description", 'author', "author", 'language', "language", 'note', "note", 'price', "price", 'comment', "comment", 'video', "video", 'PDF', "PDF", 'category_title', "title", 'category_description', "category"."description"))
+    COALESCE(JSON_AGG(JSON_BUILD_OBJECT('id',"course"."id",'label', "label", 'course_description', "course_description", 'poster', "poster", 'author', "author", 'language', "language", 'note', "note", 'price', "price", 'comment', "comment", 'video', "video", 'PDF', "PDF", 'category_title', "title", 'category_description', "category"."description"))
     FILTER(WHERE "label" IS NOT NULL), '[]') AS "courses"
 FROM 
     "teacher"
@@ -36,7 +36,7 @@ GROUP BY
 
 CREATE VIEW "course_with_category" AS
 SELECT 
-    "course"."id", "label", "course_description", "author", "language", "note", "price", "comment", "video", "PDF",
+    "course"."id", "label", "course_description", "poster", "author", "language", "note", "price", "comment", "video", "PDF",
     "category"."title" AS "category_title", "category"."description" AS "category_description"
 FROM 
     "course"

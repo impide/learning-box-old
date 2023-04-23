@@ -1,5 +1,3 @@
--- Deploy formation:functions to pg
-
 BEGIN;
 
 -- Insert User
@@ -21,10 +19,11 @@ $$ LANGUAGE sql;
 CREATE FUNCTION "insert_course"(json) RETURNS "course" AS $$
 
     INSERT INTO "course"
-        ("label", "course_description", "author", "language", "price", "video", "PDF", "teacher_id", "category_id") VALUES
+        ("label", "course_description", "poster", "author", "language", "price", "video", "PDF", "teacher_id", "category_id") VALUES
         (
             $1->>'label',
             $1->>'course_description',
+            $1->>'poster',
             $1->>'author',
             $1->>'language',
             ($1->>'price')::numeric(4,2),
@@ -120,7 +119,7 @@ CREATE FUNCTION "update_teacher_course"(json) RETURNS "course" AS $$
 
 $$ LANGUAGE sql STRICT;
 
---Todo : update a comment
+-- Update Comment and Note
 CREATE FUNCTION "update_comment_note"(json) RETURNS "course" AS $$
 
     UPDATE "course" SET 
@@ -140,8 +139,7 @@ CREATE FUNCTION "update_comment_note"(json) RETURNS "course" AS $$
 
 $$ LANGUAGE sql;
 
-
--- TODO Insert a comment 
+-- Insert Comment
 CREATE FUNCTION "insert_comment"(json) RETURNS "course" AS $$
 
     INSERT INTO "course" 
@@ -161,7 +159,5 @@ CREATE FUNCTION "insert_comment"(json) RETURNS "course" AS $$
         ) RETURNING *
     
 $$ LANGUAGE sql STRICT;
-
-
 
 COMMIT;

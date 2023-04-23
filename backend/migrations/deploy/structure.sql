@@ -42,6 +42,7 @@ CREATE TABLE "course"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "label"	TEXT NOT NULL UNIQUE,
     "course_description" TEXT NOT NULL,
+    "poster" TEXT NOT NULL,
     "author" TEXT NOT NULL,
     "language" TEXT DEFAULT 'Français',
     "note" JSONB,
