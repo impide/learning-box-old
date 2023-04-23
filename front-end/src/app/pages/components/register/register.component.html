@@ -1,0 +1,20 @@
+<div class="row w-100 mx-0">
+  <div class="register-container col-12 px-0">
+    <div class="title d-flex justify-content-around text-white">
+      <h3 (click)="toSignup()" [ngClass]="registerAnimation.titleForm === 'login' ? '' : 'underline'">
+        Inscription
+      </h3>
+      <h3 (click)="toLogin()" [ngClass]="registerAnimation.titleForm === 'signup' ? '' : 'underline'">
+        Connexion
+      </h3>
+    </div>
+    <div class="form d-flex" [@titleForm]="registerAnimation.titleForm">
+      <div class="col-12 bg-white">
+        <app-signup></app-signup>
+      </div>
+      <div class="col-12 bg-white">
+        <app-login></app-login>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.course {
+    .desc-content {
+      .content {
+        ul {
+          list-style: none;
+        }
+
+        ul li:first-of-type {
+          font-weight: 600;
+        }
+
+        ul li:last-of-type {
+          text-align: justify;
+        }
+      }
+    }
+
+  .sub-content {
+      .pdf-sub-content {
+        position: relative;
+        $border: 2px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background-color: #fff;
+        border: $border solid transparent;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          z-index: -1;
+          margin: -4px;
+          border-radius: inherit;
+          background: linear-gradient(to bottom, #0449FC, rgba(252, 4, 182, 0.6));
+        }
+
+        .pdf p {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+
+      .about-sub-content p:first-of-type {
+        font-weight: 600;
+      }
+
+    .btn-sub-content {
+      button {
+        border-radius: 10px;
+      }
+
+      .download-pdf {
+        background: linear-gradient(88.34deg, rgba(252, 4, 4, 0.4) -4.48%, rgba(4, 73, 252, 0.4) -4.47%, rgba(252, 4, 182, 0.24) 97.21%);
+      }
+
+      .buy-course {
+        background: linear-gradient(180.37deg, #011F3E 0.09%, #153981 100%);
+      }
+    }
+  }
+}

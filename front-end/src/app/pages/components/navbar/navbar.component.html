@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12 px-0">
+    <nav class="navbar d-flex justify-content-between px-4">
+      <div class="navbar-menu d-flex align-items-center">
+        <div class="brand me-4">
+          <h1 class="text-white" (click)="onCatalog()">Learning-Box</h1>
+        </div>
+        <div class="menu" *ngIf="(isAuth$ | async)">
+          <ul class="menu-list text-white d-flex ps-0 mb-0">
+            <li *ngFor="let route of navbarRoute">
+              <a routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact:true}" [routerLink]="[route.routePath]"
+              [ngClass]="route.disabled ? 'mx-4 disabled-true' : 'disabled-false'">
+                {{ route.routeName }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="profile-info d-flex align-items-center">
+          <div class="userEmail" *ngIf="(isAuth$ | async)">
+            <p class="text-white mb-0 me-3">{{userPseudo$ | async}}</p>
+          </div>
+          <i class="bi bi-person-circle text-white"></i>
+        </div>
+        <ul class="dropdown-menu">
+          <li *ngIf="(isAuth$ | async) === false"><a class="dropdown-item text-center" (click)="onAuth('login')">Se connecter</a></li>
+          <li *ngIf="(isAuth$ | async) === false"><a class="dropdown-item text-center" (click)="onAuth('signup')">S'inscrire</a></li>
+          <li *ngIf="(isAuth$ | async) === true"><a class="dropdown-item text-center" (click)="onLogout()">Se déconnecter</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
