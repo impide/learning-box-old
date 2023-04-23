@@ -2,6 +2,7 @@ export interface Course {
   id: number;
   label: string;
   course_description: string;
+  poster: string;
   author: string;
   language: string;
   note: Note[];
@@ -14,8 +15,8 @@ export interface Course {
 }
 
 export interface Note {
-  note: number;
   userId: number;
+  note: number;
 }
 
 export interface Comment {

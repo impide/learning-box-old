@@ -4,6 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthStoreModule } from './auth-store';
+import { CourseStoreModule } from './course-store';
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { AuthStoreModule } from './auth-store';
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     AuthStoreModule,
+    CourseStoreModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ]
 })

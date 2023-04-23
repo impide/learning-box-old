@@ -14,7 +14,8 @@ import { LoginComponent } from '../components/register/login/login.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CoursesListComponent } from '../components/courses-list/courses-list.component';
-import { CourseComponent } from '../components/courses-list/course/course.component';
+import { CourseCardComponent } from '../components/courses-list/course-card/course-card.component';
+import { CourseComponent } from './course/course.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { ParallaxComponent } from '../components/parallax/parallax.component';
 
@@ -29,6 +30,7 @@ import { ParallaxItemDirective } from '../../core/parallax-data';
     NavbarComponent,
     CatalogComponent,
     CoursesListComponent,
+    CourseCardComponent,
     CourseComponent,
     FooterComponent,
     ParallaxComponent,
@@ -51,6 +53,7 @@ import { ParallaxItemDirective } from '../../core/parallax-data';
     NavbarComponent,
     CatalogComponent,
     CoursesListComponent,
+    CourseCardComponent,
     CourseComponent,
     FooterComponent,
     ParallaxComponent,

@@ -1,0 +1,47 @@
+<ng-container *ngIf="(currentCourse$ | async) as currentCourse">
+  <div class="row">
+    <div class="course col-12 d-flex flex-column align-items-between p-5">
+      <div class="content col-12 d-flex justify-content-between mb-5">
+        <div class="video-content col-8">
+          <video class="w-100 h-100" controls>
+            <source [src]="currentCourse.video" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="desc-content col-4 ps-5">
+          <div class="title mb-5">
+            <h1>{{ currentCourse.label }}</h1>
+          </div>
+          <div class="content">
+            <ul class="ps-0" *ngFor="let content of contents">
+              <li>{{ content.title }}</li>
+              <li>{{ content.description }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sub-content col-12">
+
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <div class="pdf-sub-content col-8 py-2 px-3">
+            <div class="pdf">
+              <p>Contenu PDF</p>
+              <p>Lorem ipsum dolor sit amet consectetur. Sit orci magna diam netus. Vestibulum est lectus nunc donec turpis sem consequat habitasse et. Turpis ornare pharetra sit adipiscing dignissim mi eget mi adipiscing. Sed enim purus libero vestibulum bibendum enim nisl ac aliquet...</p>
+            </div>
+          </div>
+          <div class="btn-sub-content col-4 d-flex justify-content-between ps-5">
+            <button class="btn download-pdf text-white py-2 px-4" disabled>Télécharger le PDF</button>
+            <button class="btn buy-course text-white py-2 px-4" disabled>Achetez ce cours</button>
+          </div>
+        </div>
+
+          <div class="about-sub-content px-3">
+            <p>À propos de ce cours</p>
+            <p>Le leadership, un terme emprunté à l'anglais, définit la capacité d'un individu à mener ou conduire d'autres individus ou organisations...</p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</ng-container>
+
