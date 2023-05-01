@@ -1,25 +1,23 @@
-export interface Course {
+import { IUser } from "./user.interface";
+import { IComment } from "./comment.interface";
+import { Lang } from "../enums/langs";
+import { ICategory } from "./category.interface";
+
+export interface ICourse {
   id: number;
   label: string;
   course_description: string;
   poster: string;
-  author: string;
-  language: string;
-  note: Note[];
+  author: IUser;
+  authorId: number;
+  language: Lang;
+  note: number[];
+  comment: IComment[];
   price: number;
-  comment: Comment[];
   video: string;
   PDF: string;
-  category_title: string;
-  category_description: string;
-}
-
-export interface Note {
-  userId: number;
-  note: number;
-}
-
-export interface Comment {
-  userId: number;
-  comment: string;
+  category: ICategory;
+  categoryId: number;
+  created_at: Date;
+  updated_at: Date;
 }

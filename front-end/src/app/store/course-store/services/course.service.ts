@@ -10,10 +10,14 @@ export class CourseService {
 
   constructor(
     private http: HttpClient,
-    ) {}
+  ) { }
 
-  getCourse(): Observable<{}> {
+  getAllCourses(): Observable<{}> {
     return this.http.get<{}>(`${this.BASE_API}/courses/`);
+  }
+
+  getOneCourse(id: number): Observable<{}> {
+    return this.http.get<{}>(`${this.BASE_API}/courses/${id}`);
   }
 
 }

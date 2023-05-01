@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12 px-0">
+    <nav class="navbar d-flex justify-content-between px-4">
+      <div class="navbar-menu d-flex align-items-center">
+        <div class="brand me-4">
+          <h1 class="text-white" (click)="onCatalog()">Learning-Box</h1>
+        </div>
+        <div class="menu" *ngIf="(isAuth$ | async)">
+          <ul class="menu-list text-white d-flex ps-0 mb-0">
+            <li *ngFor="let route of navbarRoute">
+              <a routerLinkActive="activeRoute" [routerLinkActiveOptions]="{exact:true}"
+                [routerLink]="[route.routePath]" [ngClass]="route.disabled ? 'mx-4 disabled-true' : 'disabled-false'">
+                {{ route.routeName }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile" [matMenuTriggerFor]="menu">
+        <div class="profile-info d-flex align-items-center">
+          <div class="userEmail" *ngIf="(isAuth$ | async)">
+            <p class="text-white mb-0 me-3">{{userPseudo$ | async}}</p>
+          </div>
+          <i class="bi bi-person-circle text-white" *ngIf="!(isAuth$ | async)"></i>
+          <div class="avatar" *ngIf="(isAuth$ | async)">
+            <img class="w-100 h-100" [src]="(userAvatarUrl$ | async)" alt="Avatar">
+          </div>
+        </div>
+        <mat-menu #menu="matMenu">
+          <ng-container *ngIf="(isAuth$ | async)">
+            <button mat-menu-item *ngFor="let menu of profileDataOn">
+              <a (click)="onSelectMenu(menu.methodValue)">{{ menu.textValue }}</a>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!(isAuth$ | async)">
+            <button mat-menu-item *ngFor="let menu of profileDataOff">
+              <a (click)="onSelectMenu(menu.methodValue)">{{ menu.textValue }}</a>
+            </button>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </nav>
+  </div>
+</div>

@@ -1,7 +1,9 @@
+import { Role } from "../enums/roles";
+
 export class SignupModel {
-  pseudo: string;
   email: string;
+  pseudo: string;
   password: string;
-  avatar: string;
-  role: number;
+  avatarUrl: string;
+  role: Role;
 }

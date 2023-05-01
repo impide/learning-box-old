@@ -2,14 +2,14 @@ import { ComponentType } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DialogConfig } from '../../interfaces/material.interface';
+import { IDialogConfig } from '../../interfaces/material.interface';
 
 @Injectable({ providedIn: 'root' })
 export class MaterialService {
   constructor(
     private _snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   openSnackBar(message: string, durationInSeconds: number): void {
     this._snackBar.open(message, 'Close', {
@@ -17,10 +17,10 @@ export class MaterialService {
     });
   }
 
-  openDialog(component: ComponentType<any>, configs?: DialogConfig): void {
+  openDialog(component: ComponentType<any>, configs?: IDialogConfig): void {
     this.dialog.open(component, {
-        panelClass: [...configs.panelClass] || null,
-        autoFocus: configs.autoFocus || null
+      panelClass: [...configs.panelClass] || null,
+      autoFocus: configs.autoFocus || null
     });
   }
 

@@ -15,13 +15,30 @@ export class CourseEffects {
     private actions$: Actions,
     private courseService: CourseService,
     private materialService: MaterialService
-  ) {}
+  ) { }
+
+  GetCourses$: Observable<CourseActions> = createEffect(() =>
+    this.actions$.pipe(
+      ofType<fromCourseActions.GetCourses>(fromCourseActions.CourseActionsTypes.GET_COURSES),
+      switchMap(() =>
+        this.courseService.getAllCourses().pipe(
+          map((courseData: ICourseData) => {
+            return new fromCourseActions.GetCoursesSuccess(courseData);
+          }),
+          catchError((err: string) => {
+            this.showError("An Error has occured, please retry later!");
+            return of(new fromCourseActions.GetCoursesError(err));
+          })
+        )
+      )
+    )
+  );
 
   GetCourse$: Observable<CourseActions> = createEffect(() =>
     this.actions$.pipe(
       ofType<fromCourseActions.GetCourse>(fromCourseActions.CourseActionsTypes.GET_COURSE),
-      switchMap(() =>
-        this.courseService.getCourse().pipe(
+      switchMap(action =>
+        this.courseService.getOneCourse(action.payload).pipe(
           map((courseData: ICourseData) => {
             return new fromCourseActions.GetCourseSuccess(courseData);
           }),
@@ -35,7 +52,7 @@ export class CourseEffects {
   );
 
   showError(errorMsg: string): void {
-    this.materialService.openSnackBar(errorMsg,5);
+    this.materialService.openSnackBar(errorMsg, 5);
   }
 
 }

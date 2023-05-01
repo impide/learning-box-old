@@ -1,4 +1,4 @@
-export interface DialogConfig {
+export interface IDialogConfig {
   panelClass?: string[];
   autoFocus?: boolean;
 }

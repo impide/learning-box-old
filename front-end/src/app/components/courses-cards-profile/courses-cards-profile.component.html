@@ -1,0 +1,10 @@
+<div class="courses d-flex">
+  <ul class="d-flex justify-content-between ps-0 mb-0">
+    <li *ngFor="let course of (courses$ | async)" (click)="navigateToCourse(course)">
+      <app-course-card [courseLabel]="course.label" [coursePoster]="course.poster" [courseAuthor]="course.author"
+        [coursePrice]="course.price" [courseVideo]="course.video" [overrideCourseProperty]="true"
+        [overrideTitleProperty]="true">
+      </app-course-card>
+    </li>
+  </ul>
+</div>

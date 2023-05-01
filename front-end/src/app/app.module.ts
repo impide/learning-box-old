@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutModule } from './pages/layouts/layout.module';
+import { PageModule } from './pages/page.module';
 import { RootStateModule } from './store';
-import { MaterialModule } from './utils/materials/material.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,8 +11,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
-    MaterialModule,
+    PageModule,
     RootStateModule
   ],
   providers: [],

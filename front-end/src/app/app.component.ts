@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthFeatureStoreActions, AuthFeatureStoreState } from './store/auth-store/index';
+import { AuthFeatureStoreActions, AuthFeatureStoreState } from './store/auth-store';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private store: Store<AuthFeatureStoreState.AuthState>
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('auth')) {

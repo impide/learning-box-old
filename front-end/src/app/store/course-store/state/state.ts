@@ -1,9 +1,10 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
-import { Course } from '../../../interfaces';
+import { ICourse } from '../../../interfaces';
 import { ICourseData } from './interface';
 
 export interface CourseState extends EntityState<ICourseData> {
-  courses: Course[];
+  courses: ICourse[];
+  course: ICourse;
   loading: boolean;
   error: string | null;
 }
@@ -14,6 +15,7 @@ export const courseAdapter: EntityAdapter<ICourseData> = createEntityAdapter<ICo
 
 const defaultCourse = {
   courses: [],
+  course: null,
   loading: false,
   error: null,
 };

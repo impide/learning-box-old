@@ -1,0 +1,11 @@
+<div class="tabs-profile bg-white p-4 mb-3">
+  <ul class="d-flex ps-0 mb-0">
+    <li *ngFor="let tab of profileTabs">
+      {{ tab.tabValue }}
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+  <router-outlet></router-outlet>
+</div>

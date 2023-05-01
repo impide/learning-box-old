@@ -1,7 +1,0 @@
-%syntax-version=1.0.0
-%project=learningbox
-
-structure 2023-01-20T18:53:12Z Nathy <Nathy@DESKTOP-K68B3DQ> # Structure of Database
-constraint 2023-01-20T18:54:46Z Nathy <Nathy@DESKTOP-K68B3DQ> # Constraint of Database
-view 2023-01-20T18:55:51Z Nathy <Nathy@DESKTOP-K68B3DQ> # View of different Table
-functions 2023-01-20T18:57:06Z Nathy <Nathy@DESKTOP-K68B3DQ> # Function of different Table

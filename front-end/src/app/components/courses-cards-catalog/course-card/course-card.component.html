@@ -1,0 +1,19 @@
+<div class="course p-3" [ngClass]="{'overrideCourseProperty': overrideCourseProperty}">
+  <div class="preview-cover">
+    <img class="w-100 h-100" [src]="coursePoster" alt="Cover">
+  </div>
+  <p class="title mt-4 mb-0" [ngClass]="{'overrideTitleProperty': overrideTitleProperty}">{{ courseLabel }}</p>
+  <p class="author my-2">{{ courseAuthor.pseudo }}</p>
+  <div class="rate-and-price d-flex justify-content-between">
+    <div class="rate">
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill mx-1"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill mx-1"></i>
+      <i class="bi bi-star-fill"></i>
+    </div>
+    <div class="price">
+      {{ coursePrice }}€
+    </div>
+  </div>
+</div>

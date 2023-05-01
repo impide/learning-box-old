@@ -1,5 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
-import { IUser, IUserData } from './interface';
+import { IUserData } from './interface';
+import { IUser } from '../../../interfaces/user.interface';
 
 export interface AuthState extends EntityState<IUserData> {
   currentUser: IUser | null;

@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  pseudo        String
+  password      String
+  avatarUrl     String
+  role          Role[]    @default([USER])
+  courses       Course[]
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @default(now())
+  expiration_at DateTime?
+  comment       Comment?
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String
+  parent      Int?
+  course      Course[]
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model Course {
+  id                 Int       @id @default(autoincrement())
+  label              String    @unique
+  course_description String
+  poster             String
+  author             User      @relation(fields: [authorId], references: [id])
+  authorId           Int
+  language           Lang?     @default(FR)
+  note               Decimal[]
+  comment            Comment[]
+  price              Decimal
+  video              String
+  pdf                String
+  category           Category  @relation(fields: [categoryId], references: [id])
+  categoryId         Int
+  created_at         DateTime  @default(now())
+  updated_at         DateTime  @default(now())
+}
+
+model Comment {
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int      @unique
+  comments   String[]
+  course     Course?  @relation(fields: [courseId], references: [id])
+  courseId   Int?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+enum Role {
+  USER
+  TEACHER
+  ADMIN
+}
+
+enum Lang {
+  FR
+  EN
+}

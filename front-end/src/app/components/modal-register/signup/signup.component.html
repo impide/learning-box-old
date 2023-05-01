@@ -1,0 +1,82 @@
+<form [formGroup]="mainForm" class="signup-form col-12 justify-content-center mt-3">
+  <!-- Pseudo -->
+  <div class="row form-container mb-2">
+    <mat-form-field appearance="outline">
+      <mat-label>Votre pseudo</mat-label>
+      <input matInput formControlName="pseudo" required maxlength="15">
+      <!-- Errors -->
+      <mat-error *ngIf="mainForm.get('pseudo')!.hasError('required')">
+        Ce champ est obligatoire
+      </mat-error>
+      <mat-error *ngIf="mainForm.get('pseudo')!.hasError('pattern') && !mainForm.get('pseudo')!.hasError('minlength')">
+        Format accepter: lettres ou caractères alphanumériques
+      </mat-error>
+      <mat-error *ngIf="mainForm.get('pseudo')!.hasError('minlength')">
+        Votre pseudo doit contenir au minimum 3 caractères
+      </mat-error>
+      <!-- Check -->
+      <button mat-icon-button matSuffix *ngIf="mainForm.get('pseudo').valid">
+        <mat-icon class="text-success">check_circle</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <!-- Email -->
+  <div class="row form-container mb-2">
+    <mat-form-field appearance="outline" class="text-success">
+      <mat-label>Votre email</mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngIf="mainForm.get('email')!.hasError('required')">
+        Ce champ est obligatoire
+      </mat-error>
+      <mat-error *ngIf="mainForm.get('email')!.hasError('email')">
+        Veuillez entrez un e-mail valide
+      </mat-error>
+      <button mat-icon-button matSuffix *ngIf="mainForm.get('email').valid">
+        <mat-icon class="text-success">check_circle</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <!-- Password -->
+  <div class="row form-container mb-2">
+    <mat-form-field appearance="outline">
+      <mat-label>Votre mot de passe</mat-label>
+      <input matInput formControlName="password" required>
+      <mat-error *ngIf="mainForm.get('password')!.hasError('required')">
+        Ce champ est obligatoire
+      </mat-error>
+      <mat-error *ngIf="mainForm.get('password')!.hasError('pattern')">
+        Format accepter: 1 lettre majuscule, 1 lettre minuscule, 1 symbole et 8 caractères minimum
+      </mat-error>
+      <button mat-icon-button matSuffix *ngIf="mainForm.get('password').valid">
+        <mat-icon class="text-success">check_circle</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <!-- Password Confirmation -->
+  <div class="row form-container mb-3">
+    <mat-form-field appearance="outline">
+      <mat-label>Confirmer votre mot de passe</mat-label>
+      <input matInput formControlName="passwordConfirm" required>
+      <mat-error *ngIf="mainForm.get('passwordConfirm')!.hasError('required')">
+        Ce champ est obligatoire
+      </mat-error>
+      <mat-error *ngIf="mainForm.get('password').value !== this.mainForm.get('passwordConfirm').value">
+        Les mots de passes ne correspondent pas
+      </mat-error>
+      <button mat-icon-button matSuffix *ngIf="mainForm.get('passwordConfirm').valid">
+        <mat-icon class="text-success">check_circle</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="row submit-btn">
+    <div class="text-center mb-3">
+      <button class="btn col-4 text-white mb-3" (click)="onSignup()">
+        S'inscrire
+      </button>
+      <p>
+        En vous inscrivant, vous acceptez nos <span>Conditions d'utilisation</span> et notre <span>Politique de
+          confidentialité</span>.
+      </p>
+    </div>
+  </div>
+</form>

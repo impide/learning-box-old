@@ -1,3 +1,5 @@
+type RouteNameData = 'Catalog' | '|' | 'Categories' | 'Formateur';
+
 export const NavbarData: NavbarData[] = [
   {
     routeName: 'Catalog',
@@ -25,7 +27,7 @@ export const NavbarData: NavbarData[] = [
 ];
 
 export interface NavbarData {
-  routeName: string;
+  routeName: RouteNameData;
   routePath?: string;
   disabled: boolean;
 };

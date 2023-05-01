@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { IUserData } from './interface';
-import { RegisterAnimationService } from '../../../utils/animations/index';
+import { RegisterAnimationService } from '../../../utils/animations';
 import { MaterialService } from '../../../utils/materials/material.service';
 import { AuthService } from '../services/auth.service';
 
 import * as fromAuthActions from './action';
 import { AuthActions } from './action';
-import { SignupModel } from '../../../models/index';
+import { SignupModel } from '../../../models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
@@ -20,7 +20,7 @@ export class AuthEffects {
     private actions$: Actions,
     private authService: AuthService,
     private materialService: MaterialService
-  ) {}
+  ) { }
 
   SignUp$: Observable<AuthActions> = createEffect(() =>
     this.actions$.pipe(
@@ -94,20 +94,19 @@ export class AuthEffects {
 
   handleUserStorage(userData: IUserData) {
     const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
-    userData.result.expirationDate = expirationDate;
+    userData.result.expiration_at = expirationDate;
     return userData;
   }
 
-  handleUserLogout() {
+  handleUserLogout(): void {
     if (localStorage.getItem('auth')) {
       localStorage.removeItem('auth');
     }
-
     this.router.navigate([`/`]);
   }
 
   showError(errorMsg: string): void {
-    this.materialService.openSnackBar(errorMsg,5);
+    this.materialService.openSnackBar(errorMsg, 5);
   }
 
 }

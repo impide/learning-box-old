@@ -7,7 +7,6 @@ const MIME_TYPES = {
 };
 
 const storage = multer.diskStorage({
-    // Retrieve extension file and see if it Matches our values
     destination: (req, file, callback) => {
         const isValid = MIME_TYPES[file.mimetype];
         let error = new Error('Invalid mime type');
@@ -16,7 +15,6 @@ const storage = multer.diskStorage({
         }
         callback(error, 'public/images');
     },
-    // Let's format the name of our file
     filename: (req, file, callback) => {
         const name = file.originalname
             .toLowerCase()
@@ -24,13 +22,10 @@ const storage = multer.diskStorage({
             .join('-');
         const ext = MIME_TYPES[file.mimetype];
 
-        // If we have "unsplash", delete it
         let extractUnplash = name;
         if (name.includes('unsplash')) {
             extractUnplash = name.split('unsplash');
         }
-
-        // If our fileName has already an extension, don't take it
         const extractExt = extractUnplash.split(/\.(?=[^\\.]+$)/);
         callback(null, `${extractExt[0]}-${Date.now()}.${ext}`);
     },

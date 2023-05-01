@@ -1,5 +1,0 @@
-# For Adding existing Data :
-Step 1 - On terminal cd to this path : C:\Serveurs\PostgreSQL\15\bin
-Step 2 - Connect to Postges : psql -d learningbox -U postgres
-Step 3 - Enter this command by replacing the path and remove the balise:  \i <pathToSeeding.sql>
-Exemple:  \i C:/Users/Nathy/Desktop/LearningBox/learning-box-project/backend/data/seeding.sql

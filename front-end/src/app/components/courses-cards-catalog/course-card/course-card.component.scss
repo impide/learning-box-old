@@ -1,0 +1,66 @@
+.course {
+  width: 370px;
+  height: 350px;
+  transition: all .2s;
+  cursor: pointer;
+
+  .preview-cover {
+    height: 180px;
+  }
+
+  .preview-cover img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  p.title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    height: 48px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  p.author {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: #8F8F8F;
+  }
+
+  .rate-and-price {
+    .rate {
+      color: #FED605;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+.course:hover {
+  background: #f0f0f0;
+}
+
+// Optionnal Overriding
+.overrideCourseProperty {
+  width: 340px !important;
+  height: 330px !important;
+}
+
+.overrideCourseProperty:hover {
+  background-color: #00000015;
+}
+
+p.overrideTitleProperty {
+  font-size: 18px !important;
+}

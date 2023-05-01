@@ -6,6 +6,25 @@ export function courseReducer(
   action: CourseActions
 ) {
   switch (action.type) {
+    case CourseActionsTypes.GET_COURSES:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case CourseActionsTypes.GET_COURSES_SUCCESS:
+      return courseAdapter.setOne(action.payload, {
+        ...state,
+        courses: action.payload.result,
+        loading: false,
+        error: null,
+      });
+    case CourseActionsTypes.GET_COURSES_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case CourseActionsTypes.GET_COURSE:
       return {
         ...state,
@@ -15,7 +34,7 @@ export function courseReducer(
     case CourseActionsTypes.GET_COURSE_SUCCESS:
       return courseAdapter.setOne(action.payload, {
         ...state,
-        courses: action.payload.result,
+        course: action.payload.result,
         loading: false,
         error: null,
       });
