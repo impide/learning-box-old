@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FooterData, FooterData_A, FooterData_B } from '../../core';
+import { FooterData, FooterData_A, FooterData_B } from '../../../core';
 
 @Component({
   selector: 'app-footer',

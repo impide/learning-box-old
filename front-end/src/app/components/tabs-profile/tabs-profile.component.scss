@@ -14,6 +14,13 @@
     font-size: 20px;
     line-height: 29px;
     letter-spacing: 0.05em;
+    color: #C6C6C6;
+    cursor: pointer;
+  }
+
+  ul li.isActive {
+    cursor: default !important;
+    color: #000 !important;
   }
 
 }

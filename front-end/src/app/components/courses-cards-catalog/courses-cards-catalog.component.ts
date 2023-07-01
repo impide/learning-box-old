@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable, filter, skipWhile } from 'rxjs';
 import { ICategory, ICourse } from '../../interfaces';
-import { CategoryFeatureStoreActions, CategoryFeatureStoreSelectors, CategoryFeatureStoreState } from 'src/app/store';
+import { CategoryFeatureStoreActions, CategoryFeatureStoreSelectors, CategoryFeatureStoreState } from '../../store';
 
 @Component({
   selector: 'app-courses-catalog-cards',

@@ -12,6 +12,8 @@ export class CourseCardComponent {
   @Input() courseAuthor: IUser;
   @Input() coursePrice: number;
   @Input() courseVideo: string;
+  // Optionnal Overriding
   @Input() overrideCourseProperty?: boolean;
   @Input() overrideTitleProperty?: boolean;
+  @Input() isPriceVisible?: boolean = true;
 }

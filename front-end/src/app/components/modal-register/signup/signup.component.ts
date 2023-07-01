@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { SignupModel } from '../../../models';
+import { ISignup } from '../../../interfaces';
 import { AuthFeatureStoreActions, AuthFeatureStoreState } from '../../../store';
-import { Role } from 'src/app/enums/roles';
-import { pseudoValidators, emailValidators, passwordValidators, keyForms } from 'src/app/utils/errors-manager';
+import { Role } from '../../../enums/roles';
+import { pseudoValidators, emailValidators, passwordValidators, keyForms } from '../../../utils/errors-manager';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +13,7 @@ import { pseudoValidators, emailValidators, passwordValidators, keyForms } from 
 })
 export class SignupComponent implements OnInit {
   public mainForm: FormGroup;
-  hide = true;
+
   constructor(private store: Store<AuthFeatureStoreState.AuthState>) { }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       avatarUrl: 'https://images.unsplash.com/photo-1671519821564-ced7e41ee7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80',
       role: Role.USER
     }
-    const userSignup: SignupModel = formValues;
+    const userSignup: ISignup = formValues;
     this.store.dispatch(new AuthFeatureStoreActions.SignUp(userSignup));
   }
 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { filter, map, Observable, skipWhile, take } from 'rxjs';
-import { ICourse } from 'src/app/interfaces';
-import { CourseFeatureStoreState, CourseFeatureStoreSelectors, CourseFeatureStoreActions } from 'src/app/store';
+import { ICourse } from '../../interfaces';
+import { CourseFeatureStoreState, CourseFeatureStoreSelectors, CourseFeatureStoreActions } from '../../store';
 
 @Component({
   selector: 'app-course',
@@ -19,14 +19,18 @@ export class CourseComponent implements OnInit {
     private store: Store<CourseFeatureStoreState.CourseState>) { }
 
   ngOnInit(): void {
-    this.getCourseId();
+    this.getCurrentCourseId();
     this.store.dispatch(new CourseFeatureStoreActions.GetCourse(this.courseId));
-    this.getCourse();
 
-    this.currentCourse$.subscribe(console.log)
+    this.currentCourse$ = this.store
+      .pipe(
+        select(CourseFeatureStoreSelectors.selectCourse),
+        skipWhile(val => val === null),
+        filter(value => value !== undefined),
+      );
   }
 
-  getCourseId(): void {
+  getCurrentCourseId(): void {
     this.route.paramMap.pipe(
       filter(id => !!id),
       map(params => params.get('courseId')),
@@ -34,15 +38,6 @@ export class CourseComponent implements OnInit {
     ).subscribe((params) => {
       this.courseId = (+params);
     });
-  }
-
-  getCourse(): void {
-    this.currentCourse$ = this.store
-      .pipe(
-        select(CourseFeatureStoreSelectors.selectCourse),
-        skipWhile(val => val === null),
-        filter(value => value !== undefined),
-      );
   }
 
   contents: Content[] = [

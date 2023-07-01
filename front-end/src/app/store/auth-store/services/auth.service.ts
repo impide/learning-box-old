@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginModel, SignupModel } from '../../../models';
+import { ILogin, ISignup } from '../../../interfaces';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -13,12 +13,12 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  signup(user: SignupModel): Observable<SignupModel> {
-    return this.http.post<SignupModel>(`${this.BASE_API}/users/signup`, user);
+  signup(user: ISignup): Observable<ISignup> {
+    return this.http.post<ISignup>(`${this.BASE_API}/users/signup`, user);
   }
 
-  login(user: LoginModel): Observable<LoginModel> {
-    return this.http.post<LoginModel>(`${this.BASE_API}/users/login`, user);
+  login(user: ILogin): Observable<ILogin> {
+    return this.http.post<ILogin>(`${this.BASE_API}/users/login`, user);
   }
 
 }

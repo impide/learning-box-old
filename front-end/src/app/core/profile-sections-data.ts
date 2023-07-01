@@ -1,6 +1,7 @@
 type ProfileSections = 'Mes cours' | 'Notifications' | 'Paramètre' | 'Aide';
 type ProfileTabs = 'Cours' | 'Favoris' | 'Suggestions';
-type ProfileRoutePath = 'my-courses/all'
+type ProfileRoutePath = 'my-courses/all';
+type TabsRoutePath = 'all';
 
 export const ProfileSectionsData: ProfileSectionsData[] = [
   {
@@ -24,7 +25,8 @@ export const ProfileSectionsData: ProfileSectionsData[] = [
 
 export const ProfileTabsData: ProfileTabsData[] = [
   {
-    tabValue: 'Cours'
+    tabValue: 'Cours',
+    routePath: 'all'
   },
   {
     tabValue: 'Favoris'
@@ -42,4 +44,5 @@ export interface ProfileSectionsData {
 
 export interface ProfileTabsData {
   tabValue: ProfileTabs;
+  routePath?: TabsRoutePath;
 }

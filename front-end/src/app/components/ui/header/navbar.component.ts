@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { filter, Observable, skipWhile } from 'rxjs';
 import { Router } from '@angular/router';
-import { MaterialService } from '../../utils/materials/material.service';
-import { AuthFeatureStoreActions, AuthFeatureStoreSelectors, AuthFeatureStoreState } from '../../store';
-import { RegisterAnimationService } from '../../utils/animations';
-import { RegisterComponent } from '../modal-register/register.component';
-import { NavbarData, ProfileMenuData } from '../../core';
-import { ProfileMenuDataOn, ProfileMenuDataOff } from '../../core';
+import { MaterialService } from '../../../utils/materials/material.service';
+import { AuthFeatureStoreActions, AuthFeatureStoreSelectors, AuthFeatureStoreState } from '../../../store';
+import { RegisterAnimationService } from '../../../utils/animations';
+import { RegisterComponent } from '../../modal-register/register.component';
+import { NavbarData, ProfileMenuData, ProfileMenuDataOn, ProfileMenuDataOff } from '../../../core';
 
 @Component({
   selector: 'app-navbar',

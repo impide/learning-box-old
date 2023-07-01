@@ -1,6 +1,7 @@
 <div class="tabs-profile bg-white p-4 mb-3">
   <ul class="d-flex ps-0 mb-0">
-    <li *ngFor="let tab of profileTabs">
+    <li *ngFor="let tab of profileTabs" routerLinkActive="isActive" [routerLink]="[tab.routePath]"
+      [routerLinkActiveOptions]="{exact:true}">
       {{ tab.tabValue }}
     </li>
   </ul>

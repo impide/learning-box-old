@@ -22,9 +22,9 @@
   </div>
   <div class="sections">
     <ul class="sections-list ps-0 mb-0">
-      <li class="d-flex align-items-center mb-3" *ngFor="let section of profileSectionsData">
-        <a class="d-flex align-items-center" routerLinkActive="isActive" [routerLink]="[section.routePath]"
-          [routerLinkActiveOptions]="{exact:true}">
+      <li class="d-flex align-items-center mb-3" *ngFor="let section of profileSectionsData" routerLinkActive="isActive"
+        [routerLink]="[section.routePath]" [routerLinkActiveOptions]="{exact:true}">
+        <a class="d-flex align-items-center">
           <i [ngClass]=" section.icon"></i>
           <span class="my-0 ms-4">{{ section.textvalue }}</span>
         </a>

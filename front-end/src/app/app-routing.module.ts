@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'authentification', component: AuthentificationComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'catalog/course/:courseId/title/:courseTitle', component: CourseComponent },
-  // My Profile
   {
     path: 'profile', component: ProfileComponent, children: [
       {

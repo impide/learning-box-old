@@ -3,7 +3,7 @@
     <li *ngFor="let course of (courses$ | async)" (click)="navigateToCourse(course)">
       <app-course-card [courseLabel]="course.label" [coursePoster]="course.poster" [courseAuthor]="course.author"
         [coursePrice]="course.price" [courseVideo]="course.video" [overrideCourseProperty]="true"
-        [overrideTitleProperty]="true">
+        [overrideTitleProperty]="true" [isPriceVisible]="false">
       </app-course-card>
     </li>
   </ul>

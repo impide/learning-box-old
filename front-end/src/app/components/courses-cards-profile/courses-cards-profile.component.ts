@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourse } from '../../interfaces';
 import { Router } from '@angular/router';
-import { CourseFeatureStoreActions, CourseFeatureStoreSelectors, CourseFeatureStoreState } from 'src/app/store';
+import { CourseFeatureStoreActions, CourseFeatureStoreSelectors, CourseFeatureStoreState } from '../../store';
 import { Store, select } from '@ngrx/store';
 import { Observable, filter, skipWhile } from 'rxjs';
 

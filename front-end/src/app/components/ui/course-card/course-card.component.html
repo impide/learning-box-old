@@ -12,7 +12,7 @@
       <i class="bi bi-star-fill mx-1"></i>
       <i class="bi bi-star-fill"></i>
     </div>
-    <div class="price">
+    <div class="price" *ngIf="isPriceVisible">
       {{ coursePrice }}€
     </div>
   </div>

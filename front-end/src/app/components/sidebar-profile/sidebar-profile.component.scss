@@ -59,20 +59,27 @@
 
       li {
         cursor: pointer;
-
-        .isActive {
-          i, span {color: #000 !important;}
+        i,span {
+          color: #C6C6C6;
         }
-
-        a { text-decoration: none;  }
-        i,span {  color: #C6C6C6; }
-        i { font-size: 30px; }
-
+        a {
+          text-decoration: none;
+        }
+        i {
+          font-size: 30px;
+        }
         span {
           font-size: 15px;
           line-height: 18px;
         }
       }
+    }
+
+    .sections-list li.isActive {
+        cursor: default !important;
+        a,i,span {
+          color: #000 !important;
+        }
     }
   }
 }

@@ -1,7 +1,7 @@
-import { state, style, trigger } from '@angular/animations';
+import { AnimationTriggerMetadata, state, style, trigger } from '@angular/animations';
 import { Injectable } from '@angular/core';
 
-export const RegisterAnimation = [
+export const RegisterAnimation: AnimationTriggerMetadata[] = [
   trigger('titleForm', [
     state(
       'signup',
@@ -22,7 +22,7 @@ export const RegisterAnimation = [
 
 @Injectable({ providedIn: 'root' })
 export class RegisterAnimationService {
-  titleForm: string = '';
+  titleForm: string;
 
   toLoginForm(): void {
     this.titleForm = 'login';

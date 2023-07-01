@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 
 import * as fromAuthActions from './action';
 import { AuthActions } from './action';
-import { SignupModel } from '../../../models';
+import { ISignup } from '../../../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
@@ -27,7 +27,7 @@ export class AuthEffects {
       ofType<fromAuthActions.SignUp>(fromAuthActions.AuthActionsTypes.SIGNUP),
       switchMap(action =>
         this.authService.signup(action.payload).pipe(
-          map((user: SignupModel) => {
+          map((user: ISignup) => {
             this.isRegistered();
             return new fromAuthActions.SignUpSuccess(user);
           }),
