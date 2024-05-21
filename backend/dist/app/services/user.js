@@ -29,7 +29,7 @@ exports.default = {
                     pseudo: user.pseudo,
                     email: user.email,
                     password: user.password,
-                    avatarUrl: user.avatar,
+                    avatarUrl: user.avatarUrl,
                     role: user.role
                 }
             });

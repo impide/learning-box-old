@@ -27,6 +27,7 @@ exports.default = {
                 throw new Error('Non autorisé(e)');
             const encryptedPassword = yield bcrypt_1.default.hash(password, 10);
             const newUser = Object.assign(Object.assign({}, req.body), { password: encryptedPassword });
+            console.log("2", newUser.avatarUrl);
             const createdUser = yield user_1.default.createOne(newUser);
             return res.status(200).json({
                 status: 200,
@@ -40,8 +41,7 @@ exports.default = {
             const user = yield user_1.default.findOneByEmail(email);
             if (user === null)
                 throw new Error('Cet utilisateur n\'existe pas');
-            const encryptedPassword = yield bcrypt_1.default.hash(user.password, 10);
-            const comparePassword = yield bcrypt_1.default.compare(password, encryptedPassword);
+            const comparePassword = yield bcrypt_1.default.compare(password, user.password);
             if (!comparePassword)
                 throw new Error('Non autorisé(e)');
             delete user.password;

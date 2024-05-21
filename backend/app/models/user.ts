@@ -4,6 +4,6 @@ export interface SignupModel {
   pseudo: string;
   email: string;
   password: string;
-  avatar: string;
+  avatarUrl: string;
   role: Role;
 }

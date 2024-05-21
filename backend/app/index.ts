@@ -10,8 +10,9 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = ['http://localhost:2000'];
-const options: cors.CorsOptions = { origin: allowedOrigins };
+const allowedOrigins = ['http://localhost:4200'];
+const allowedHeaders = ['Access-Control-Allow-Origin, Content-Type, Accept, Accept-Language, Origin, User-Agent'];
+const options: cors.CorsOptions = { origin: allowedOrigins, allowedHeaders };
 app.use(cors(options));
 
 app.use('/images', express.static(path.join('../public/images')));
